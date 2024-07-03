@@ -176,6 +176,7 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -183,7 +184,9 @@ header nav .nav-sections ul > li > ul {
 }
 
 header nav .nav-sections ul > li > ul > li {
+  padding-left: 10px;
   font-weight: 500;
+  text-transform: none;
 }
 
 @media (width >= 900px) {
@@ -239,6 +242,8 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
+    flex-direction: column;
+    gap: 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
@@ -266,6 +271,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
+    font-weight: 600;
   }
 }
 
