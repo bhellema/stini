@@ -4,7 +4,17 @@ footer {
   font-size: var(--body-font-size-s);
 }
 
-footer .footer {
+
+footer div::after {
+  content: '';
+  background: url('/icons/logo.png') no-repeat;
+  background-size: contain;
+  width: 160px;
+  height: 160px;
+}
+
+footer .footer-item {
+  justify-content: center;
   display: flex;
   gap: 50px;
   max-width: 1200px;
@@ -20,5 +30,6 @@ footer .footer {
     list-style: none;
     padding: 0;
   }
+
 }
 

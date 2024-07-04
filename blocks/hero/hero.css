@@ -10,21 +10,42 @@ main .hero-container {
   position: relative;
   min-height: 600px;
 
-  @media (max-width: 990px) {
+  @media (width <= 990px) {
     min-height: 400px;
   }
 
   background-color: rgb(0 0 0 / 40%);
+
+  p {
+    text-transform: uppercase;
+    border-bottom-color: white;
+    margin: 0;
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: rgb(10 10 10 / 67%);
+  }
+
+  div > p:nth-of-type(2) {
+    position: relative;
+    background: rgb(255 255 255 / 30%);
+    border-bottom: 2px solid rgb(0 0 0 / 50%);
+    color: black;
+  }
+
+  p:nth-of-type(2)::after {
+    content: '';
+    background: url('/icons/logo.png') no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    width: 60px; /* Set the width of the image */
+    height: 60px; /* Set the height of the image */
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 40px;
+  }
 }
 
-.hero p {
-  margin: 0;
-  color: white;
-  font-size: 6.5rem;
-  border: 2px solid black;
-  text-align: center;
-  background-color: rgb(10 10 10 / 67%);
-}
 
 .hero picture {
   position: absolute;
