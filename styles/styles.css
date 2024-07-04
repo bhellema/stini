@@ -150,7 +150,7 @@ a:any-link {
 }
 
 a:hover {
-  color: var(--light-color);
+  color: var(--featured-color);
 }
 
 /* buttons */
