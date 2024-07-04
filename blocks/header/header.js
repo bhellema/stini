@@ -146,4 +146,26 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0,
+  };
+
+  const promotion = document.querySelector('.promotion-wrapper');
+  const navMenu = document.querySelector('.nav-wrapper');
+
+  const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        navMenu.classList.add('sticky');
+      } else {
+        navMenu.classList.remove('sticky');
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, options);
+  observer.observe(promotion);
 }

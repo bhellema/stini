@@ -10,7 +10,7 @@ import {
   decorateTemplateAndTheme,
   waitForLCP,
   loadBlocks,
-  loadCSS, getMetadata,
+  loadCSS, getMetadata, loadPromotion,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -69,7 +69,6 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
-
 /**
  * Decorates the template.
  */
@@ -105,7 +104,6 @@ export async function loadTemplate(doc, templateName) {
     console.log(`failed to load block ${templateName}`, error);
   }
 }
-
 
 /**
  * Loads everything needed to get to LCP.
@@ -148,6 +146,7 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  loadPromotion(doc.querySelector('header'));
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 

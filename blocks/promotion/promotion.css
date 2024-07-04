@@ -1,0 +1,10 @@
+.promotion {
+  background-color: #f9f9f9;
+  text-align: center;
+  overflow-y: hidden;
+
+  p {
+    margin: 10px;
+    font-size: 1.2rem;
+  }
+}

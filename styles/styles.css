@@ -17,7 +17,10 @@
   --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
-  --text-color: black;
+  --black: #000;
+  --text-color: var(--black);
+  --nav-background-color: rgba(10, 10, 10, 0.67);
+  --nav-font-color: hsla(0, 0%, 100%, 0.8);
 
   /* fonts */
   --body-font-family: Teko, sans-serif;
@@ -37,7 +40,7 @@
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
 
-  --nav-height: 64px;
+  --nav-height: 48px;
 }
 
 @media (width >= 900px) {
@@ -66,7 +69,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+    height: auto;
 }
 
 h1,

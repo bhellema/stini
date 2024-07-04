@@ -700,6 +700,13 @@ async function loadHeader(header) {
   return loadBlock(headerBlock);
 }
 
+async function loadPromotion(promo) {
+  const promoBlock = buildBlock('promotion', '');
+  promo.append(promoBlock);
+  decorateBlock(promoBlock);
+  return loadBlock(promoBlock);
+}
+
 /**
  * Loads a block named 'footer' into footer
  * @param footer footer element
@@ -753,6 +760,7 @@ export {
   loadCSS,
   loadFooter,
   loadHeader,
+  loadPromotion,
   loadScript,
   readBlockConfig,
   sampleRUM,
