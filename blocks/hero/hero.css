@@ -1,4 +1,4 @@
-main .hero-container > div {
+main .hero-container > .hero-wrapper {
   max-width: unset;
 }
 
@@ -10,6 +10,7 @@ main .hero-container {
   position: relative;
   padding: 32px;
   min-height: 500px;
+  background-color: rgb(0,0,0,0.3)
 }
 
 .hero h1 {
