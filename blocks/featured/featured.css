@@ -8,6 +8,9 @@
     }
 
     .featured-card {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         padding: 5px;
         text-align: center;
         box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 22%);
@@ -29,9 +32,9 @@
         }
 
         .featured-card-body {
+            flex: 1;
             text-align: center;
             padding: 10px;
-            min-height: 150px;
         }
 
         a {
@@ -43,7 +46,7 @@
         }
 
         @media (width <= 990px) {
-            flex: 1 280px;
+            flex: 0 280px;
 
             h3 {
                 font-size: 1.4em;
@@ -51,10 +54,10 @@
         }
 
         @media (width <= 768px) {
-            flex: 0 300px;
+            flex: 0 230px;
 
             .featured-card-image {
-                aspect-ratio: 1 / 1;
+                aspect-ratio: 4 / 3;
             }
 
             .featured-card-callout {
@@ -62,7 +65,7 @@
             }
 
             h3 {
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
         }
 
@@ -91,8 +94,6 @@
 .featured .featured-card-body .featured-card-callout {
     margin-top: 0;
 }
-
-
 
 .featured-card-divider {
     background-color: rgb(0 0 0 / 10%);

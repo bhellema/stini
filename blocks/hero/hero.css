@@ -14,7 +14,7 @@ main .hero-container {
     min-height: 400px;
   }
 
-  background-color: rgb(0 0 0 / 40%);
+  background-color: rgb(0 0 0 / 20%);
 
   p {
     text-transform: uppercase;

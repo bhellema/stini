@@ -37,8 +37,7 @@ export default async function decorate(block) {
         { class: 'button outlined', href: item.path },
         span('View Details'),
       );
-      const card = div(pic, body, divider, action);
-      liEl.append(card);
+      liEl.append(pic, body, divider, action);
     });
     ulEl.append(liEl);
   });
