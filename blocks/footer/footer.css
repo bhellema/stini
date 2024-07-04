@@ -5,12 +5,12 @@ footer {
 }
 
 
-footer div::after {
+footer .footer-item::after {
   content: '';
-  background: url('/icons/logo.png') no-repeat;
+  width: 100px;
+  height: auto;
+  background: url('/icons/logo.png') no-repeat bottom;
   background-size: contain;
-  width: 160px;
-  height: 160px;
 }
 
 footer .footer-item {
