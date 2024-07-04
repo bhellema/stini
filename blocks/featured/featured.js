@@ -1,5 +1,5 @@
 import {createOptimizedPicture} from "../../scripts/aem.js";
-import {a, div, h3, li, p, span} from "../../scripts/dom.js";
+import {a, div, h3, li, p, span, ul} from "../../scripts/dom.js";
 
 async function getFeatured() {
     const featured = await fetch('/query-index.json');
@@ -14,7 +14,7 @@ export default async function decorate(block) {
     const { data: items } = await getFeatured();
 
     /* change to ul, li */
-    const ul = document.createElement('ul');
+    const ulEl = ul();
     [...block.children].forEach((row) => {
         const liEl = li({class: 'featured-card'});
         [...row.children].forEach((child) => {
@@ -30,9 +30,9 @@ export default async function decorate(block) {
             const card = div(pic, body, divider, action);
             liEl.append(card);
         });
-        ul.append(liEl);
+        ulEl.append(liEl);
     });
     // ul.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
     block.textContent = '';
-    block.append(ul);
+    block.append(ulEl);
 }

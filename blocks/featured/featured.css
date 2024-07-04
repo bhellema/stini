@@ -1,11 +1,18 @@
 .featured {
     transform: translateY(-70px);
 
+    .featured-card-image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
     .featured-card {
         padding: 5px;
         text-align: center;
         box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .22);
         border-radius: 5px 0 0 5px;
+        flex: 1 1 357px;
 
         .featured-card-callout {
             font-size: .9em;
@@ -23,7 +30,7 @@
 
         .featured-card-body {
             text-align: center;
-            padding: 30px;
+            padding: 10px;
             min-height: 150px;
         }
 
@@ -31,10 +38,29 @@
             padding: 0 30px;
         }
 
+        @media (max-width: 1200px) {
+            flex-basis: 280px;
+        }
         @media (max-width: 990px) {
+            flex: 1 320px;
             h3 {
                 font-size: 1.4em;
             }
+        }
+        @media (max-width: 768px) {
+            flex: 0 300px;
+            .featured-card-image {
+                aspect-ratio: 1 / 1;
+            }
+            .featured-card-callout {
+                font-size: .8em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+        @media (max-width: 576px) {
+            flex: 0 230px;
         }
 
     }
@@ -44,24 +70,9 @@
     list-style: none;
     margin: 0;
     padding: 30px;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-
-    grid-template-columns: repeat(3, minmax(378px, 1fr));
-
-    @media (max-width: 1200px) {
-        grid-template-columns: repeat(3, minmax(300px, 1fr));
-    }
-    @media (max-width: 990px) {
-        grid-template-columns: repeat(3, minmax(260px, 1fr));
-    }
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, minmax(280px, 1fr));
-    }
-    @media (max-width: 576px) {
-        grid-template-columns: minmax(300px, 90%);
-    }
-
     grid-gap: 16px;
 }
 
@@ -70,17 +81,11 @@
     background-color: var(--background-color);
 }
 
-
-
 .featured .featured-card-body .featured-card-callout {
     margin-top: 0;
 }
 
-.featured > ul > li img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
+
 
 .featured-card-divider {
     background-color: rgba(0, 0, 0, .1);
