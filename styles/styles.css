@@ -19,11 +19,11 @@
   --dark-color: #ccc;
   --black: #000;
   --text-color: var(--black);
-  --nav-background-color: rgba(10, 10, 10, 0.67);
-  --nav-font-color: hsla(0, 0%, 100%, 0.8);
+  --nav-background-color: rgb(10 10 10 / 67%);
+  --nav-font-color: hsl(0deg 0% 100% / 80%);
 
   /* fonts */
-  --body-font-family: Teko, sans-serif;
+  --body-font-family: teko, sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -39,7 +39,6 @@
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
-
   --nav-height: 48px;
 }
 
@@ -157,8 +156,10 @@ a:hover {
 a.button:any-link,
 button {
   font-family: var(--body-font-family);
-  /*display: inline-block;*/
-  /*box-sizing: border-box;*/
+
+  /* display: inline-block; */
+
+  /* box-sizing: border-box; */
   text-decoration: none;
   text-transform: uppercase;
   padding: 5px 30px;
@@ -173,7 +174,6 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 30px;
-
   display: inline-flex; /* Use flexbox */
   align-items: center; /* Vertically center the text */
   justify-content: center; /* Horizontally center the text */
@@ -189,7 +189,7 @@ a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background-color: var(--featured-color);
   color: var(--light-color);
   cursor: pointer;
 }
@@ -224,23 +224,32 @@ main img {
   width: 100%;
 }
 
+/* select all sections that are not the first child of main */
+main > .section > *:not(:first-child) {
+  padding: 0 20px;
+}
+
 /* sections */
 main .section {
-  padding: 64px 16px;
+  /*padding: 64px 16px;*/
 }
 
-@media (width >= 600px) {
-  main .section {
-    padding: 64px 32px;
-  }
+main .section.carousel-container {
+  padding: 0;
 }
 
-@media (width >= 900px) {
-  .section > div {
-    max-width: 1200px;
-    margin: auto;
-  }
-}
+/*@media (width >= 600px) {*/
+/*  main .section {*/
+/*    padding: 64px 32px;*/
+/*  }*/
+/*}*/
+
+/*@media (width >= 900px) {*/
+/*  .section > div {*/
+/*    max-width: 1200px;*/
+/*    margin: auto;*/
+/*  }*/
+/*}*/
 
 /* section metadata */
 main .section.light,
