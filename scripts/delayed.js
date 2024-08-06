@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { sampleRUM } from './aem.js';
+import { loadScript, sampleRUM } from './aem.js';
 
 loadScript('/scripts/gtm-init.js', { defer: true });
 
