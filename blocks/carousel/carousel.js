@@ -1,4 +1,8 @@
 import { fetchPlaceholders } from '../../scripts/aem.js';
+import registerTouchHandlers from './touch.js';
+
+// the id of the currently sliding carousel can be used to cancel the timeout
+let intervalId = 0;
 
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
@@ -28,13 +32,30 @@ function updateActiveSlide(slide) {
   });
 }
 
-function showSlide(block, slideIndex = 0) {
+function setSlideInterval(block) {
+  intervalId = setTimeout(() => {
+    const indicators = [...block.querySelectorAll('.carousel-slide-indicator')];
+    const button = indicators.find((indicator) => indicator.querySelector('button').hasAttribute('disabled'));
+    if (button) {
+      const nextButton = indicators[(indicators.indexOf(button) + 1) % indicators.length].querySelector('button');
+      nextButton.click();
+    }
+  }, 5000);
+}
+
+function changeSlide(block, slideIndex = 0) {
+  if (intervalId !== 0) {
+    clearTimeout(intervalId);
+    setSlideInterval(block);
+  }
+
   const slides = block.querySelectorAll('.carousel-slide');
   let realSlideIndex = slideIndex < 0 ? slides.length - 1 : slideIndex;
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
   activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
+  console.log(`Changing slide to ${realSlideIndex} with offset ${activeSlide.offsetLeft}`);
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
     left: activeSlide.offsetLeft,
@@ -49,7 +70,7 @@ function bindEvents(block) {
   slideIndicators.querySelectorAll('button').forEach((button) => {
     button.addEventListener('click', (e) => {
       const slideIndicator = e.currentTarget.parentElement;
-      showSlide(block, parseInt(slideIndicator.dataset.targetSlide, 10));
+      changeSlide(block, parseInt(slideIndicator.dataset.targetSlide, 10));
     });
   });
 
@@ -108,6 +129,12 @@ export default async function decorate(block) {
   slidesWrapper.classList.add('carousel-slides');
   block.prepend(slidesWrapper);
 
+  registerTouchHandlers(
+    slidesWrapper,
+    () => changeSlide(block, parseInt(block.dataset.activeSlide, 10) - 1),
+    () => changeSlide(block, parseInt(block.dataset.activeSlide, 10) + 1),
+  );
+
   let slideIndicators;
   if (!isSingleSlide) {
     const slideIndicatorsNav = document.createElement('nav');
@@ -139,12 +166,5 @@ export default async function decorate(block) {
     bindEvents(block);
   }
 
-  setInterval(() => {
-    const indicators = [...block.querySelectorAll('.carousel-slide-indicator')];
-    const button = indicators.find((indicator) => indicator.querySelector('button').hasAttribute('disabled'));
-    if (button) {
-      const nextButton = indicators[(indicators.indexOf(button) + 1) % indicators.length].querySelector('button');
-      nextButton.click();
-    }
-  }, 5000);
+  setSlideInterval(block);
 }
