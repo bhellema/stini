@@ -5,13 +5,13 @@ footer {
 }
 
 
-footer .footer-item::after {
-  content: '';
-  width: 100px;
-  height: auto;
-  background: url('/icons/logo.png') no-repeat bottom;
-  background-size: contain;
-}
+/*footer .footer-item::after {*/
+/*  content: '';*/
+/*  width: 100px;*/
+/*  height: auto;*/
+/*  background: url('/icons/logo.png') no-repeat bottom;*/
+/*  background-size: contain;*/
+/*}*/
 
 footer .footer-item {
   justify-content: center;

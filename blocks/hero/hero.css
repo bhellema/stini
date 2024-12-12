@@ -27,23 +27,25 @@ main .hero-container {
   }
 
   div > p:nth-of-type(2) {
-    position: relative;
-    background: rgb(255 255 255 / 30%);
+    background: rgb(255 255 255 / 75%);
     border-bottom: 2px solid rgb(0 0 0 / 50%);
     color: black;
+    width: 100%;
+    position: absolute;
+    bottom: 80px;
   }
 
-  p:nth-of-type(2)::after {
-    content: '';
-    background: url('/icons/logo.png') no-repeat center center;
-    background-size: contain;
-    position: absolute;
-    width: 60px; /* Set the width of the image */
-    height: 60px; /* Set the height of the image */
-    top: 50%;
-    transform: translateY(-50%);
-    padding-right: 40px;
-  }
+  /*p:nth-of-type(2)::after {*/
+  /*  content: '';*/
+  /*  background: url('/icons/logo.png') no-repeat center center;*/
+  /*  background-size: contain;*/
+  /*  position: absolute;*/
+  /*  width: 60px; !* Set the width of the image *!*/
+  /*  height: 60px; !* Set the height of the image *!*/
+  /*  top: 50%;*/
+  /*  transform: translateY(-50%);*/
+  /*  padding-right: 40px;*/
+  /*}*/
 }
 
 
