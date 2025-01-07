@@ -9,6 +9,7 @@ main .hero-container {
 .hero {
   position: relative;
   min-height: 600px;
+  aspect-ratio: 16 / 9;
 
   @media (width <= 990px) {
     min-height: 400px;
