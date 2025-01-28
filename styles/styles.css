@@ -232,7 +232,6 @@ main > .section > *:not(:first-child) {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 main > .section h2 {
