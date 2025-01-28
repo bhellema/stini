@@ -1,5 +1,6 @@
 .featured {
-    transform: translateY(-70px);
+    position: relative;
+    top: -120px;
 
     .featured-card-image {
         width: 100%;
