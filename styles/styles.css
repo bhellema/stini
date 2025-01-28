@@ -62,6 +62,8 @@ body {
   max-width: 1120px; /* Set the max width */
   margin: 0 auto;    /* Center horizontally */
   padding: 0;   /* Add some padding for smaller screens */
+  border-left: 1px solid var(--dark-color);
+  border-right: 1px solid var(--dark-color);
 }
 
 body.appear {
