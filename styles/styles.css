@@ -62,7 +62,6 @@ body {
   max-width: 1120px; /* Set the max width */
   margin: 0 auto;    /* Center horizontally */
   padding: 0;   /* Add some padding for smaller screens */
-  text-align: center; /* Optional: center text inside */
 }
 
 body.appear {
@@ -241,19 +240,6 @@ main > .section h2 {
 main .section.carousel-container {
   padding: 0;
 }
-
-/*@media (width >= 600px) {*/
-/*  main .section {*/
-/*    padding: 64px 32px;*/
-/*  }*/
-/*}*/
-
-/*@media (width >= 900px) {*/
-/*  .section > div {*/
-/*    max-width: 1200px;*/
-/*    margin: auto;*/
-/*  }*/
-/*}*/
 
 /* section metadata */
 main .section.light,
