@@ -227,11 +227,13 @@ main img {
 /* select all sections that are not the first child of main */
 main > .section > *:not(:first-child) {
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* sections */
-main .section {
-  /*padding: 64px 16px;*/
+main > .section h2 {
+  text-align: center;
 }
 
 main .section.carousel-container {
