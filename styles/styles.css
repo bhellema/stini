@@ -55,12 +55,14 @@
 
 body {
   font-size: var(--body-font-size-m);
-  margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
-  display: none;
+  max-width: 1120px; /* Set the max width */
+  margin: 0 auto;    /* Center horizontally */
+  padding: 0;   /* Add some padding for smaller screens */
+  text-align: center; /* Optional: center text inside */
 }
 
 body.appear {
