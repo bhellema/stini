@@ -58,7 +58,7 @@ body {
   font-family: var(--body-font-family);
   line-height: 1.6;
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-color: #f3f3f3;
   max-width: 1120px; /* Set the max width */
   margin: 0 auto;    /* Center horizontally */
   padding: 0;   /* Add some padding for smaller screens */
