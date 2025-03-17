@@ -9,7 +9,7 @@ async function getFeatured() {
 }
 
 function getFeaturedItemByPath(path, items) {
-  return items.find((item) => item.path === path);
+  return items.find((item) => path.endsWith(item.path));
 }
 
 export default async function decorate(block) {
@@ -20,8 +20,10 @@ export default async function decorate(block) {
   [...block.children].forEach((row) => {
     const liEl = li({ class: 'featured-card' });
     [...row.children].forEach((child) => {
-      const path = child.querySelector('p').textContent;
-      const item = getFeaturedItemByPath(path, items);
+      const anchor = child.querySelector('a');
+      const link = anchor.href;
+      anchor.remove();
+      const item = getFeaturedItemByPath(link, items);
       const pic = createOptimizedPicture(
         item.image,
         item.title,
@@ -34,7 +36,7 @@ export default async function decorate(block) {
       const divider = div({ class: 'featured-card-divider' });
       const body = div({ class: 'featured-card-body' }, category, title);
       const action = a(
-        { class: 'button outlined', href: item.path },
+        { class: 'button outlined', href: link },
         span('View Details'),
       );
       liEl.append(pic, body, divider, action);
