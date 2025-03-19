@@ -101,9 +101,6 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) {
-    fragment.firstElementChild.querySelectorAll('a').forEach((a) => {
-      a.href = new URL(a.href, window.location).href;
-    });
     nav.append(fragment.firstElementChild);
   }
 
